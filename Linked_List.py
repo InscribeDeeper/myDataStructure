@@ -185,4 +185,3 @@ class Linked_List:
             node = Node(i)
             temp._next = node
             temp = temp._next
-            

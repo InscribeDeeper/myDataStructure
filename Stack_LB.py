@@ -52,4 +52,3 @@ class Stack:
 
     def length(self):
         return self.length
-        
