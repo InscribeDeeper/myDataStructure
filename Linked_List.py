@@ -1,3 +1,6 @@
+from email import header
+
+
 class Node:
     """
     定义基础数据结构，链点，包含数据域和指针域
@@ -185,3 +188,19 @@ class Linked_List:
             node = Node(i)
             temp._next = node
             temp = temp._next
+
+    def reverse(self, head):
+        if not head or not head.next: return head
+        curr = head
+        prev = None
+        while curr:
+            # 记录下一轮回的起点
+            next = curr.next  # 这一步最难想, 因为这个是迭代之后需要的元素. 因为需要先准备好, 下一个轮回开始的元素. 就如上面 需要声明 curr = head 一样
+
+            # 核心翻转部分
+            curr.next = prev  # 建立这个 link之后, curr的任务就结束了.
+
+            # 更新 对应的位置
+            prev = curr  # 需要更新 prev 移到 目前 curr 上
+            curr = next  # 同时 需要把 curr 更新到下一个上面.
+        return prev
